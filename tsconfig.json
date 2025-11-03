@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "strict": false, // enable strict type checking
+    "esModuleInterop": true, // better compatibility with CommonJS/ESM imports
+    "skipLibCheck": true, // skip type-checking for node_modules
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist"]
+}

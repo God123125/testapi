@@ -1,0 +1,33 @@
+import express, { Application, Request, Response } from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import uploadRoute from "../routes/upload.route";
+// import movieRoute from "../routes/movie.route";
+import hotelRoute from "../routes/hotel.route";
+import roomTypeRoute from "../routes/roomType.route";
+import roomRoute from "../routes/room.route";
+import customerRoute from "../routes/customer.route";
+import bookingRoute from "../routes/booking.route";
+import checkInRoute from "../routes/check-in.route";
+import checkOutRoute from "../routes/checkOut.route";
+import "../db/db";
+dotenv.config();
+const app: Application = express();
+const PORT = process.env.PORT || 3000;
+app.use(cors());
+app.use(express.json());
+app.get("/", (req: Request, res: Response) => {
+  res.json("Hello from express + typescript");
+});
+app.use("/img", uploadRoute);
+app.use("/hotels", hotelRoute);
+app.use("/roomTypes", roomTypeRoute);
+app.use("/rooms", roomRoute);
+app.use("/customers", customerRoute);
+app.use("/bookings", bookingRoute);
+app.use("/check-ins", checkInRoute);
+app.use("/check-outs", checkOutRoute);
+// app.use("/movie", movieRoute);
+app.listen(PORT, () => {
+  console.log("Server is running on port 3000!");
+});
